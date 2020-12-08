@@ -1,14 +1,16 @@
 import { useEffect, useRef, useState } from "react";
 import Iframe from "react-iframe";
+import Container from "./Container";
 import { selectClick, selectPos, setPos, setSize } from "./Pos";
 import { modalSRC } from "./Modal";
+import { Preview } from "./Preview";
 import "./scss/select.scss";
 import "./scss/modal.scss";
-import Container from "./Container";
+import "./scss/preview.scss";
 
 export default function SelectContainer({ modalNumber, setModalNumber }) {
   const [isSelecting, setIsSelecting] = useState(true);
-  var previewNumber;
+  var previewNumber = 11;
 
   useEffect(() => {
     // const bg = new Audio(
@@ -52,7 +54,12 @@ export default function SelectContainer({ modalNumber, setModalNumber }) {
         .querySelector(`[id="${i * 10 + j}"]`)
         .classList.add("active");
 
-      document.querySelector("#preview").src = i * 10 + j;
+      previewNumber = i * 10 + j;
+
+      document.querySelector("#preview").innerHTML = `
+      <h2>${Preview[previewNumber].name}</h2>
+      <p>${Preview[previewNumber].desc}</p>
+      `;
     };
 
     const keyFuction = (e) => {
@@ -85,6 +92,11 @@ export default function SelectContainer({ modalNumber, setModalNumber }) {
         soundPlay(selectSound);
         document.querySelector("#modal").className = "";
         setIsSelecting(true);
+
+        document.querySelector("#preview").innerHTML = `
+        <h2>${Preview[previewNumber].name}</h2>
+        <p>${Preview[previewNumber].desc}</p>
+        `;
       }
       setPos();
     };
@@ -95,7 +107,10 @@ export default function SelectContainer({ modalNumber, setModalNumber }) {
   return (
     <>
       <Container />
-      <img src={previewNumber} id="preview" />
+      <section id="preview">
+        <h2>{Preview[previewNumber].name}</h2>
+        <p>{Preview[previewNumber].desc}</p>
+      </section>
       <section id="modal">
         {!isSelecting && modalSRC[modalNumber] && (
           <Iframe url={modalSRC[modalNumber]} />
@@ -103,6 +118,10 @@ export default function SelectContainer({ modalNumber, setModalNumber }) {
         {!isSelecting && !modalSRC[modalNumber] && (
           <div>Sorry, There isn't contents :(</div>
         )}
+        <button className="close" onClick={setClose}>
+          <span></span>
+          <span></span>
+        </button>
       </section>
     </>
   );
@@ -120,4 +139,13 @@ const selectSound = new Audio(
 const soundPlay = (sound) => {
   sound.load();
   sound.play();
+};
+
+const setClose = () => {
+  document.querySelector("#modal").className = "";
+
+  document.querySelector("#preview").innerHTML = `
+  <h2>${Preview[11].name}</h2>
+  <p>${Preview[11].desc}</p>
+  `;
 };
