@@ -11,6 +11,11 @@ export default function SelectContainer({ modalNumber, setModalNumber }) {
   var previewNumber;
 
   useEffect(() => {
+    // const bg = new Audio(
+    //   "https://raw.githubusercontent.com/nyangmeonggood/thekingofmains/master/src/sound/bg.mp3"
+    // );
+    // bg.loop = true;
+    // document.body.addEventListener("click", () => bg.play());
     setSize();
 
     window.addEventListener("resize", () => {
@@ -104,10 +109,12 @@ export default function SelectContainer({ modalNumber, setModalNumber }) {
 }
 
 const moveSound = new Audio(
-  "https://raw.githubusercontent.com/kucerajacob/DRUM-SEQUENCER/master/audio/kick.mp3"
+  // "https://raw.githubusercontent.com/nyangmeonggood/thekingofmains/master/src/sound/move.mp3"
+  "https://raw.githubusercontent.com/kucerajacob/DRUM-SEQUENCER/master/audio/clap.mp3"
 );
 const selectSound = new Audio(
-  "https://raw.githubusercontent.com/kucerajacob/DRUM-SEQUENCER/master/audio/rim.mp3"
+  // "https://raw.githubusercontent.com/nyangmeonggood/thekingofmains/master/src/sound/select.mp3"
+  "https://raw.githubusercontent.com/kucerajacob/DRUM-SEQUENCER/master/audio/hihat.mp3"
 );
 
 const soundPlay = (sound) => {

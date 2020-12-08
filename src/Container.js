@@ -3,13 +3,13 @@ export default function Container() {
     <section className="container">
       <ul>
         <li id="11" className="active">
-          1
+          fullSlide
         </li>
         <li id="12" data-i="1" data-j="2">
-          2
+          Vietnam
         </li>
         <li id="13" data-i="1" data-j="3">
-          3
+          Buttonbutton
         </li>
         <li id="21" data-i="2" data-j="1">
           4
@@ -32,10 +32,10 @@ export default function Container() {
       </ul>
       <ul>
         <li id="14" data-i="1" data-j="4">
-          1
+          DIY_main
         </li>
         <li id="15" data-i="1" data-j="5">
-          2
+          Animation
         </li>
         <li id="16" data-i="1" data-j="6">
           3
