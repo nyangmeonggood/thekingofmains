@@ -2,7 +2,7 @@ export default function Container() {
   return (
     <section className="container">
       <ul>
-        <li id="11" className="active">
+        <li id="11" data-i="1" data-j="1">
           fullSlide
         </li>
         <li id="12" data-i="1" data-j="2">

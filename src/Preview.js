@@ -1,5 +1,5 @@
 export const Preview = {
-  11: { name: "11", desc: "11src" },
+  11: { name: "Fullpage Slide", desc: "Click motion & Canvas" },
   12: { name: "12", desc: "12src" },
   13: { name: "13", desc: "13src" },
   14: { name: "14", desc: "14src" },

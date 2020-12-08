@@ -34,7 +34,7 @@ export const selectPos = (setIsSelecting) => {
 
 export const selectClick = (
   setIsSelecting,
-  setModalNumber,
+  setPreviewNumber,
   soundPlay,
   selectSound
 ) => {
@@ -45,9 +45,19 @@ export const selectClick = (
       item.addEventListener("click", function () {
         soundPlay(selectSound);
         selectPos(setIsSelecting);
-        setModalNumber(
+        setPreviewNumber(
           parseInt(item.dataset.i * 10) + parseInt(item.dataset.j)
         );
+
+        for (var k = 0; k < 3; k++) {
+          Object.values(
+            document.querySelector(".container").children[k].children
+          ).map((item) => item.classList.remove("active"));
+        }
+        document.body
+          .querySelector(`[id="${parseInt(item.dataset.i * 10) + parseInt(item.dataset.j)}"]`)
+          .classList.add("active");
+        setPos()
       })
     );
   }
