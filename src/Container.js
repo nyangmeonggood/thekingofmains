@@ -6,10 +6,10 @@ export default function Container() {
           fullSlide
         </li>
         <li id="12" data-i="1" data-j="2">
-          Vietnam
+          sideChange
         </li>
         <li id="13" data-i="1" data-j="3">
-          Buttonbutton
+          Button
         </li>
         <li id="21" data-i="2" data-j="1">
           4

@@ -1,4 +1,4 @@
-import { useCallback, useEffect,useRef,useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Iframe from "react-iframe";
 import Container from "./Container";
 import { selectClick, selectPos, setPos, setSize } from "./Pos";
@@ -8,10 +8,10 @@ import "./scss/select.scss";
 import "./scss/modal.scss";
 import "./scss/preview.scss";
 
-export default function SelectContainer({previewNumber, setPreviewNumber}) {
+export default function SelectContainer({ previewNumber, setPreviewNumber }) {
   const [isSelecting, setIsSelecting] = useState(true);
   const memoryINumber = useRef(1),
-   memoryJNumber = useRef(1);
+    memoryJNumber = useRef(1);
 
   const setClose = useCallback(() => {
     document.querySelector("#modal").className = "";
@@ -19,14 +19,19 @@ export default function SelectContainer({previewNumber, setPreviewNumber}) {
 
     document.querySelector("#preview").innerHTML = `
     <h2>${Preview[previewNumber].name}</h2>
+    <span>- ${
+      Preview[previewNumber].responsive ? "Responsive Web" : " Not Responsive"
+    }</span>
     <p>${Preview[previewNumber].desc}</p>
     `;
-  },[previewNumber])
+  }, [previewNumber]);
 
   useEffect(() => {
     document.body
-    .querySelector(`[id="${memoryINumber.current*10 + memoryJNumber.current}"]`)
-    .classList.add("active");
+      .querySelector(
+        `[id="${memoryINumber.current * 10 + memoryJNumber.current}"]`
+      )
+      .classList.add("active");
     // const bg = new Audio(
     //   "https://raw.githubusercontent.com/nyangmeonggood/thekingofmains/master/src/sound/bg.mp3"
     // );
@@ -39,17 +44,17 @@ export default function SelectContainer({previewNumber, setPreviewNumber}) {
       setPos();
     });
 
-    selectClick(setIsSelecting,setPreviewNumber, soundPlay, selectSound);
+    selectClick(setIsSelecting, setPreviewNumber, soundPlay, selectSound);
 
     return () =>
       window.removeEventListener("resize", () => {
         setSize();
         setPos();
       });
-  },[setPreviewNumber]);
+  }, [setPreviewNumber]);
 
   useEffect(() => {
-    let i =memoryINumber.current;
+    let i = memoryINumber.current;
     let j = memoryJNumber.current;
 
     const moveSelector = () => {
@@ -70,6 +75,9 @@ export default function SelectContainer({previewNumber, setPreviewNumber}) {
 
       document.querySelector("#preview").innerHTML = `
       <h2>${Preview[i * 10 + j].name}</h2>
+      <span>- ${
+        Preview[previewNumber].responsive ? "Responsive Web" : " Not Responsive"
+      }</span>
       <p>${Preview[i * 10 + j].desc}</p>
       `;
     };
@@ -99,8 +107,8 @@ export default function SelectContainer({previewNumber, setPreviewNumber}) {
         soundPlay(selectSound);
         selectPos(setIsSelecting);
         setPreviewNumber(i * 10 + j);
-        memoryINumber.current = i
-        memoryJNumber.current = j
+        memoryINumber.current = i;
+        memoryJNumber.current = j;
       }
       if (!isSelecting && e.keyCode === 27) {
         soundPlay(selectSound);
@@ -111,14 +119,20 @@ export default function SelectContainer({previewNumber, setPreviewNumber}) {
 
     document.addEventListener("keydown", keyFuction);
     return () => {
-      document.removeEventListener("keydown", keyFuction)
+      document.removeEventListener("keydown", keyFuction);
     };
-  },[isSelecting,setClose,setPreviewNumber]);
+  }, [isSelecting, setClose, setPreviewNumber]);
   return (
     <>
       <Container />
       <section id="preview">
         <h2>{Preview[previewNumber].name}</h2>
+        <span>
+          -{" "}
+          {Preview[previewNumber].responsive
+            ? "Responsive Web"
+            : " Not Responsive"}
+        </span>
         <p>{Preview[previewNumber].desc}</p>
       </section>
       <section id="modal">

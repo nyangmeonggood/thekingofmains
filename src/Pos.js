@@ -57,7 +57,7 @@ export const selectClick = (
         document.body
           .querySelector(`[id="${parseInt(item.dataset.i * 10) + parseInt(item.dataset.j)}"]`)
           .classList.add("active");
-        setPos()
+        setPos();
       })
     );
   }
