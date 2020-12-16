@@ -9,16 +9,16 @@ export default function Container() {
           sideChange
         </li>
         <li id="13" data-i="1" data-j="3">
-          Button
+          picChangedByList
         </li>
         <li id="21" data-i="2" data-j="1">
-          4
+          ColorBubble
         </li>
         <li id="22" data-i="2" data-j="2">
-          5
+          BottomBlur
         </li>
         <li id="23" data-i="2" data-j="3">
-          6
+          Grider
         </li>
         <li id="31" data-i="3" data-j="1">
           7

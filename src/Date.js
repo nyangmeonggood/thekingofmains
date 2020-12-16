@@ -41,6 +41,14 @@ const TITLE = styled.p`
   background: linear-gradient(#02041a, #060c9f);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+
+  @media screen and (max-width: 900px) {
+    left: 0;
+    right: 2%;
+    bottom: 2%;
+    transform: perspective(4em) rotateX(0) skewX(0);
+    text-align: right;
+  }
 `;
 
 const Time = styled.div`

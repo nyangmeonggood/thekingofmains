@@ -44,7 +44,14 @@ export default function SelectContainer({ previewNumber, setPreviewNumber }) {
       setPos();
     });
 
-    selectClick(setIsSelecting, setPreviewNumber, soundPlay, selectSound);
+    selectClick(
+      setIsSelecting,
+      setPreviewNumber,
+      soundPlay,
+      selectSound,
+      memoryINumber,
+      memoryJNumber
+    );
 
     return () =>
       window.removeEventListener("resize", () => {
@@ -121,12 +128,14 @@ export default function SelectContainer({ previewNumber, setPreviewNumber }) {
     return () => {
       document.removeEventListener("keydown", keyFuction);
     };
-  }, [isSelecting, setClose, setPreviewNumber]);
+  }, [isSelecting, setClose, previewNumber,setPreviewNumber]);
   return (
     <>
       <Container />
       <section id="preview">
-        <h2>{Preview[previewNumber].name}</h2>
+        <h2>{Preview[previewNumber].name} {Preview[previewNumber].pages
+            ? <span>FullSite</span>
+            : ""}</h2>
         <span>
           -{" "}
           {Preview[previewNumber].responsive

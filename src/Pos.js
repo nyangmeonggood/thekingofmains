@@ -36,7 +36,9 @@ export const selectClick = (
   setIsSelecting,
   setPreviewNumber,
   soundPlay,
-  selectSound
+  selectSound,
+  memoryINumber,
+  memoryJNumber
 ) => {
   for (var k = 0; k < 3; k++) {
     Object.values(
@@ -55,11 +57,38 @@ export const selectClick = (
           ).map((item) => item.classList.remove("active"));
         }
         document.body
-          .querySelector(`[id="${parseInt(item.dataset.i * 10) + parseInt(item.dataset.j)}"]`)
+          .querySelector(
+            `[id="${parseInt(item.dataset.i * 10) + parseInt(item.dataset.j)}"]`
+          )
           .classList.add("active");
         setPos();
       })
     );
+  }
+
+  if (document.querySelector("#selector")) {
+    document.querySelector("#selector").addEventListener("click", function () {
+      soundPlay(selectSound);
+      selectPos(setIsSelecting);
+      setPreviewNumber(
+        parseInt(memoryINumber.current * 10) + parseInt(memoryJNumber.current)
+      );
+
+      for (var k = 0; k < 3; k++) {
+        Object.values(
+          document.querySelector(".container").children[k].children
+        ).map((item) => item.classList.remove("active"));
+      }
+      document.body
+        .querySelector(
+          `[id="${
+            parseInt(memoryINumber.current * 10) +
+            parseInt(memoryJNumber.current)
+          }"]`
+        )
+        .classList.add("active");
+      setPos();
+    });
   }
 };
 

@@ -11,14 +11,14 @@
   box-sizing: border-box;
 
   > ul {
-    display: grid;
-    width: 30%;
+    display: flex;
+    width: 32%;
     height: 100%;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
+    flex-wrap: wrap;
 
     > li {
       position: relative;
+      width: 33.3333%;
       background-color: #fc3;
       border: 2px solid white;
       box-sizing: border-box;
