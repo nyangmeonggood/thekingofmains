@@ -7,4 +7,5 @@ export const modalSRC = {
   21: "https://nyangmeonggood.github.io/mains/ColorBubble/",
   22: "https://nyangmeonggood.github.io/mains/bottomBlur/",
   23: "https://nyangmeonggood.github.io/mains/grider/",
+  31: "https://nyangmeonggood.github.io/mains/verticalSwipe/",
 };

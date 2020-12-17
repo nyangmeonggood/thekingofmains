@@ -21,7 +21,7 @@ export default function Container() {
           Grider
         </li>
         <li id="31" data-i="3" data-j="1">
-          7
+          Vertical Swiper
         </li>
         <li id="32" data-i="3" data-j="2">
           8

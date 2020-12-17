@@ -128,14 +128,15 @@ export default function SelectContainer({ previewNumber, setPreviewNumber }) {
     return () => {
       document.removeEventListener("keydown", keyFuction);
     };
-  }, [isSelecting, setClose, previewNumber,setPreviewNumber]);
+  }, [isSelecting, setClose, previewNumber, setPreviewNumber]);
   return (
     <>
       <Container />
       <section id="preview">
-        <h2>{Preview[previewNumber].name} {Preview[previewNumber].pages
-            ? <span>FullSite</span>
-            : ""}</h2>
+        <h2>
+          {Preview[previewNumber].name}{" "}
+          {Preview[previewNumber].pages ? <span>FullSite</span> : ""}
+        </h2>
         <span>
           -{" "}
           {Preview[previewNumber].responsive
@@ -155,6 +156,7 @@ export default function SelectContainer({ previewNumber, setPreviewNumber }) {
           <span></span>
           <span></span>
         </button>
+        {/* <a className="close" href={modalSRC[previewNumber]} target="_blank"></a> 새 창에서 보게해서 문제 해결하기 */}
       </section>
     </>
   );

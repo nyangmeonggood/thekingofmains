@@ -34,7 +34,11 @@ export const Preview = {
   27: { name: "27", desc: "27src", responsive: true },
   28: { name: "28", desc: "28src", responsive: true },
   29: { name: "29", desc: "29src", responsive: true },
-  31: { name: "31", desc: "31src", responsive: true },
+  31: {
+    name: "VerticalSwipe",
+    desc: "keypad (↑ ↓) motion<br />& Swipe on max-width 900px",
+    responsive: true,
+  },
   32: { name: "32", desc: "32src", responsive: true },
   33: { name: "33", desc: "33src", responsive: true },
   34: { name: "34", desc: "34src", responsive: true },
