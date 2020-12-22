@@ -16,10 +16,15 @@
   iframe {
     border: none;
     width: 100%;
-    max-width: 900px;
+    margin: 0 auto;
     height: 100%;
     transform: scale(0.8);
-    background-color: white;
+    background-color: transparent;
+    transition: width 0.5s;
+
+    &.mobile {
+      width: 40%;
+    }
   }
 
   .close {
@@ -48,6 +53,11 @@
         transform: translate(-50%, -50%) rotate(-45deg);
       }
     }
+  }
+
+  .resBtn {
+    position: absolute;
+    top: 0;
   }
 }
 

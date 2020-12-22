@@ -13,6 +13,11 @@ export default function SelectContainer({ previewNumber, setPreviewNumber }) {
   const memoryINumber = useRef(1),
     memoryJNumber = useRef(1);
 
+  const setRes = useCallback(() => {
+    if (document.querySelector("#modal iframe"))
+      document.querySelector("#modal iframe").classList.toggle("mobile");
+  }, []);
+
   const setClose = useCallback(() => {
     document.querySelector("#modal").className = "";
     setIsSelecting(true);
@@ -155,6 +160,9 @@ export default function SelectContainer({ previewNumber, setPreviewNumber }) {
         <button className="close" onClick={setClose}>
           <span></span>
           <span></span>
+        </button>
+        <button className="resBtn" onClick={setRes}>
+          <span>HI</span>
         </button>
         {/* <a className="close" href={modalSRC[previewNumber]} target="_blank"></a> 새 창에서 보게해서 문제 해결하기 */}
       </section>
