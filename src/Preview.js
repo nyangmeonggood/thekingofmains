@@ -6,12 +6,12 @@ export const Preview = {
     pages: true,
   },
   12: {
-    name: "SideChange",
+    name: "X : SideChange",
     desc: "Hover motion & keypad (← →) motion<br />& Swipe on mobile ",
     responsive: true,
   },
   13: {
-    name: "PicChangedByList",
+    name: "B : PicChangedByList",
     desc: "Slide & Click motion",
     responsive: true,
   },
@@ -20,7 +20,7 @@ export const Preview = {
     desc: "Page Changing Motion & Canvas Animation",
     responsive: true,
   },
-  15: { name: "15", desc: "15src", responsive: true },
+  15: { name: "Pop Corner", desc: "Page Changing Motion & Pointer Animation", responsive: true },
   16: { name: "16", desc: "16src", responsive: true },
   17: { name: "17", desc: "17src", responsive: true },
   18: { name: "18", desc: "18src", responsive: true },

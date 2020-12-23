@@ -3,7 +3,7 @@ export const modalSRC = {
   12: "https://nyangmeonggood.github.io/mains/sideChange/",
   13: "https://nyangmeonggood.github.io/mains/PicChangedByList/",
   14: "https://nyangmeonggood.github.io/mains/blendBackground/",
-  15: "https://nyangmeonggood.github.io/Animation/index.html",
+  15: "https://nyangmeonggood.github.io/mains/popCorner/",
   21: "https://nyangmeonggood.github.io/mains/ColorBubble/",
   22: "https://nyangmeonggood.github.io/mains/bottomBlur/",
   23: "https://nyangmeonggood.github.io/mains/grider/",
