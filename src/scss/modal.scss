@@ -23,7 +23,8 @@
     transition: width 0.5s;
 
     &.mobile {
-      width: 40%;
+      width: 30%;
+      min-width: 400px;
     }
   }
 
