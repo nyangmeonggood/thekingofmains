@@ -5,6 +5,9 @@ export const modalSRC = {
   14: "https://nyangmeonggood.github.io/mains/blendBackground/",
   15: "https://nyangmeonggood.github.io/mains/popCorner/",
   16: "https://nyangmeonggood.github.io/mains/bookshelf/",
+  17: "https://nyangmeonggood.github.io/mains/sideHideMenu/",
+  18: "https://nyangmeonggood.github.io/mains/blockList/",
+  19: "https://nyangmeonggood.github.io/mains/enteringBox/",
   21: "https://nyangmeonggood.github.io/mains/ColorBubble/",
   22: "https://nyangmeonggood.github.io/mains/bottomBlur/",
   23: "https://nyangmeonggood.github.io/mains/grider/",
@@ -14,4 +17,7 @@ export const modalSRC = {
   31: "https://nyangmeonggood.github.io/mains/verticalSwipe/",
   32: "https://nyangmeonggood.github.io/mains/autoBGandGauge/",
   33: "https://nyangmeonggood.github.io/mains/blind/",
+  34: "https://nyangmeonggood.github.io/mains/circleSlide/",
+  35: "https://nyangmeonggood.github.io/mains/timeLine/",
+  36: "https://nyangmeonggood.github.io/mains/gallery/",
 };
