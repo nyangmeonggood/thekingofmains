@@ -153,10 +153,7 @@ export default function SelectContainer({ previewNumber, setPreviewNumber }) {
       <Container />
       <section id="preview">
         <div className="textBox">
-          <h2>
-            {Preview[previewNumber].name}{" "}
-            {Preview[previewNumber].pages ? <span>FullSite</span> : ""}
-          </h2>
+          <h2>{Preview[previewNumber].name} </h2>
           <span>
             -{" "}
             {Preview[previewNumber].responsive
