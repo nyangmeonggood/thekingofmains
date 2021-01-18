@@ -23,6 +23,14 @@
       border: 2px solid white;
       box-sizing: border-box;
       margin-bottom: 10px;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      filter: saturate(0);
+
+      &.active {
+        filter: saturate(1);
+      }
 
       &:nth-child(3n + 2) {
         border-left: none;

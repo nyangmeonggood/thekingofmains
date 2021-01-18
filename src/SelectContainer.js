@@ -23,11 +23,16 @@ export default function SelectContainer({ previewNumber, setPreviewNumber }) {
     setIsSelecting(true);
 
     document.querySelector("#preview").innerHTML = `
-    <h2>${Preview[previewNumber].name}</h2>
-    <span>- ${
-      Preview[previewNumber].responsive ? "Responsive Web" : " Not Responsive"
-    }</span>
-    <p>${Preview[previewNumber].desc}</p>
+      <div class="textBox">
+        <h2>${Preview[previewNumber].name}</h2>
+        <span>- ${
+          Preview[previewNumber].responsive
+            ? "Responsive Web"
+            : " Not Responsive"
+        }</span>
+        <p>${Preview[previewNumber].desc}</p>
+      </div>
+      <img src=${Preview[previewNumber].img} alt=""></img>
     `;
   }, [previewNumber]);
 
@@ -86,12 +91,14 @@ export default function SelectContainer({ previewNumber, setPreviewNumber }) {
         .classList.add("active");
 
       document.querySelector("#preview").innerHTML = `
-      <h2>${Preview[i * 10 + j].name}</h2>
-      <span>- ${
-        Preview[i * 10 + j].responsive ? "Responsive Web" : " Not Responsive"
-      }</span>
-      <p>${Preview[i * 10 + j].desc}</p>
-      <img src="${Preview[i * 10 + j].img}" alt=""></img>
+      <div class="textBox">
+        <h2>${Preview[i * 10 + j].name}</h2>
+        <span>- ${
+          Preview[i * 10 + j].responsive ? "Responsive Web" : " Not Responsive"
+        }</span>
+        <p>${Preview[i * 10 + j].desc}</p>
+      </div>
+      <img src=${Preview[i * 10 + j].img} alt=""></img>
       `;
     };
 
@@ -145,17 +152,19 @@ export default function SelectContainer({ previewNumber, setPreviewNumber }) {
     <>
       <Container />
       <section id="preview">
-        <h2>
-          {Preview[previewNumber].name}{" "}
-          {Preview[previewNumber].pages ? <span>FullSite</span> : ""}
-        </h2>
-        <span>
-          -{" "}
-          {Preview[previewNumber].responsive
-            ? "Responsive Web"
-            : " Not Responsive"}
-        </span>
-        <p>{Preview[previewNumber].desc}</p>
+        <div className="textBox">
+          <h2>
+            {Preview[previewNumber].name}{" "}
+            {Preview[previewNumber].pages ? <span>FullSite</span> : ""}
+          </h2>
+          <span>
+            -{" "}
+            {Preview[previewNumber].responsive
+              ? "Responsive Web"
+              : " Not Responsive"}
+          </span>
+          <p>{Preview[previewNumber].desc}</p>
+        </div>
         <img src={Preview[previewNumber].img} alt=""></img>
       </section>
       <section id="modal">

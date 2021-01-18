@@ -9,7 +9,8 @@ export default function Container() {
     for (let i = 0; i < $containerUl.length; i++) {
       Object.values($containerUl[i].children).map((item) => {
         if (Preview[item.id]) {
-          item.innerHTML = Preview[item.id].name;
+          // item.innerHTML = Preview[item.id].name;
+          item.style.backgroundImage = `url(${Preview[item.id].img})`;
         }
       });
     }
