@@ -88,9 +88,10 @@ export default function SelectContainer({ previewNumber, setPreviewNumber }) {
       document.querySelector("#preview").innerHTML = `
       <h2>${Preview[i * 10 + j].name}</h2>
       <span>- ${
-        Preview[previewNumber].responsive ? "Responsive Web" : " Not Responsive"
+        Preview[i * 10 + j].responsive ? "Responsive Web" : " Not Responsive"
       }</span>
       <p>${Preview[i * 10 + j].desc}</p>
+      <img src="${Preview[i * 10 + j].img}" alt=""></img>
       `;
     };
 
@@ -126,6 +127,12 @@ export default function SelectContainer({ previewNumber, setPreviewNumber }) {
         soundPlay(selectSound);
         setClose();
       }
+      if (!isSelecting && e.keyCode === 77) {
+        setRes();
+      }
+      if (!isSelecting && e.keyCode === 32) {
+        window.open(modalSRC[previewNumber]);
+      }
       setPos();
     };
 
@@ -149,6 +156,7 @@ export default function SelectContainer({ previewNumber, setPreviewNumber }) {
             : " Not Responsive"}
         </span>
         <p>{Preview[previewNumber].desc}</p>
+        <img src={Preview[previewNumber].img} alt=""></img>
       </section>
       <section id="modal">
         {!isSelecting && modalSRC[previewNumber] && (
