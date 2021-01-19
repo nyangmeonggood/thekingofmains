@@ -1,16 +1,23 @@
 import { useState } from "react";
 import "./App.css";
 import CurrentDate from "./Date";
+import Intro from "./Intro";
 import SelectContainer from "./SelectContainer";
 
 function App() {
   const [previewNumber, setPreviewNumber] = useState(11);
-  
+  const [intro, setIntro] = useState(false);
+
   return (
     <>
-      <SelectContainer previewNumber={previewNumber} setPreviewNumber={setPreviewNumber}
-      />
-      <CurrentDate />
+      <Intro intro={intro} setIntro={setIntro} />
+      {intro && (
+        <SelectContainer
+          previewNumber={previewNumber}
+          setPreviewNumber={setPreviewNumber}
+        />
+      )}
+      {intro && <CurrentDate />}
     </>
   );
 }

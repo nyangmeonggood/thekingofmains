@@ -13,19 +13,38 @@
     display: block;
   }
 
+  .modalBox {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform: scale(0.8);
+    margin: 0 auto;
+    transition: width 0.5s;
+    .pc {
+      display: block;
+    }
+    .m {
+      display: none;
+    }
+
+    &.switch {
+      width: 30%;
+      min-width: 400px;
+      .pc {
+        display: none;
+      }
+      .m {
+        display: block;
+      }
+    }
+  }
+
   iframe {
     border: none;
     width: 100%;
     margin: 0 auto;
     height: 100%;
-    transform: scale(0.8);
     background-color: transparent;
-    transition: width 0.5s;
-
-    &.mobile {
-      width: 30%;
-      min-width: 400px;
-    }
   }
 
   .close {
@@ -56,9 +75,25 @@
     }
   }
 
-  .resBtn {
+  .btn {
     position: absolute;
-    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    box-sizing: border-box;
+    background-color: #dbdbdb;
+    text-decoration: none;
+    color: #111;
+    left: 100%;
+    border: 2px solid #111;
+    &.switchBtn {
+      top: -2px;
+    }
+    &.newBtn {
+      top: 56px;
+    }
   }
 }
 

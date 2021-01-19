@@ -18,10 +18,10 @@ export default function CurrentDate() {
         Page Mains
       </TITLE>
       <Time>
-        <h2>TIME</h2>
+        <h2>TODAY</h2>
         <p>
           {year}
-          {month + 1}
+          {month < 10 ? "0" + (month + 1) : month + 1}
           {day}
         </p>
       </Time>
@@ -57,9 +57,10 @@ const Time = styled.div`
   top: 50%;
   left: 50%;
   transform: translateX(-50%);
+  text-align: center;
   h2,
   p {
-    font-size: 40px;
+    font-size: 32px;
     background: linear-gradient(#c56121, #cac4b7);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;

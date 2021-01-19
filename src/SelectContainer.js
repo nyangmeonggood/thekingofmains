@@ -13,9 +13,9 @@ export default function SelectContainer({ previewNumber, setPreviewNumber }) {
   const memoryINumber = useRef(1),
     memoryJNumber = useRef(1);
 
-  const setRes = useCallback(() => {
-    if (document.querySelector("#modal iframe"))
-      document.querySelector("#modal iframe").classList.toggle("mobile");
+  const setSwitch = useCallback(() => {
+    if (document.querySelector("#modal .modalBox"))
+      document.querySelector("#modal .modalBox").classList.toggle("switch");
   }, []);
 
   const setClose = useCallback(() => {
@@ -135,7 +135,7 @@ export default function SelectContainer({ previewNumber, setPreviewNumber }) {
         setClose();
       }
       if (!isSelecting && e.keyCode === 77) {
-        setRes();
+        setSwitch();
       }
       if (!isSelecting && e.keyCode === 32) {
         window.open(modalSRC[previewNumber]);
@@ -147,7 +147,7 @@ export default function SelectContainer({ previewNumber, setPreviewNumber }) {
     return () => {
       document.removeEventListener("keydown", keyFuction);
     };
-  }, [isSelecting, setClose, previewNumber, setPreviewNumber]);
+  }, [isSelecting, setClose, previewNumber, setPreviewNumber, setSwitch]);
   return (
     <>
       <Container />
@@ -165,20 +165,30 @@ export default function SelectContainer({ previewNumber, setPreviewNumber }) {
         <img src={Preview[previewNumber].img} alt=""></img>
       </section>
       <section id="modal">
-        {!isSelecting && modalSRC[previewNumber] && (
-          <Iframe url={modalSRC[previewNumber]} />
-        )}
-        {!isSelecting && !modalSRC[previewNumber] && (
-          <div>Sorry, There isn't contents :(</div>
-        )}
+        <div className="modalBox">
+          {!isSelecting && modalSRC[previewNumber] && (
+            <Iframe url={modalSRC[previewNumber]} />
+          )}
+          {!isSelecting && !modalSRC[previewNumber] && (
+            <div>Sorry, There isn't contents :(</div>
+          )}
+          <button className="switchBtn btn" onClick={setSwitch}>
+            <i className="pc">PC</i>
+            <i className="m">M</i>
+          </button>
+          <a
+            className="newBtn btn"
+            href={modalSRC[previewNumber]}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            New
+          </a>
+        </div>
         <button className="close" onClick={setClose}>
           <span></span>
           <span></span>
         </button>
-        <button className="resBtn" onClick={setRes}>
-          <span>HI</span>
-        </button>
-        {/* <a className="close" href={modalSRC[previewNumber]} target="_blank"></a> 새 창에서 보게해서 문제 해결하기 */}
       </section>
     </>
   );
