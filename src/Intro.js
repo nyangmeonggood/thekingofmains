@@ -7,7 +7,6 @@ export default function Intro({ intro, setIntro }) {
     const keyFuction = (e) => {
       if (!intro && e.keyCode === 13) {
         setIntro(true);
-        introRef.current.style.display = "none";
       }
     };
 

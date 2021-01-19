@@ -6,11 +6,11 @@ import SelectContainer from "./SelectContainer";
 
 function App() {
   const [previewNumber, setPreviewNumber] = useState(11);
-  const [intro, setIntro] = useState(false);
+  const [intro, setIntro] = useState(true);
 
   return (
     <>
-      <Intro intro={intro} setIntro={setIntro} />
+      {!intro && <Intro intro={intro} setIntro={setIntro} />}
       {intro && (
         <SelectContainer
           previewNumber={previewNumber}
