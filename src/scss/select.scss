@@ -29,6 +29,12 @@
       filter: saturate(0);
       image-rendering: pixelated;
 
+      img {
+        display: block;
+        margin: 0 auto;
+        height: 100%;
+      }
+
       &.active {
         filter: saturate(1);
       }
