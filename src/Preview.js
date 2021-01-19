@@ -158,7 +158,7 @@ export const Preview = {
     desc: "Slide & Swipe on mobile",
     responsive: true,
     img:
-      "https://raw.githubusercontent.com/nyangmeonggood/thekingofmains/master/src/img/pixel/timeLIne.png",
+      "https://raw.githubusercontent.com/nyangmeonggood/thekingofmains/master/src/img/pixel/timeLine.png",
   },
   36: {
     name: "Gallery",
