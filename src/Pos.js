@@ -1,3 +1,5 @@
+import { Preview } from "./Preview";
+
 export const setSize = () => {
   var $selector = document.getElementById("selector"),
     $selectLi = document.body.querySelector(".container>ul>li");
@@ -62,6 +64,16 @@ export const selectClick = (
           )
           .classList.add("active");
         setPos();
+
+        document.querySelector("#modal .desc").innerHTML = "";
+
+        Preview[
+          parseInt(item.dataset.i * 10) + parseInt(item.dataset.j)
+        ].tech.map((item) => {
+          let $li = document.createElement("li");
+          $li.innerHTML = item;
+          document.querySelector("#modal .desc").appendChild($li);
+        });
       })
     );
   }

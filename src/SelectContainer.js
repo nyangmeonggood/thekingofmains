@@ -129,18 +129,25 @@ export default function SelectContainer({ previewNumber, setPreviewNumber }) {
         setPreviewNumber(i * 10 + j);
         memoryINumber.current = i;
         memoryJNumber.current = j;
-      }
+      } //enter
       if (!isSelecting && e.keyCode === 27) {
         soundPlay(selectSound);
         setClose();
-      }
+      } //esc
       if (!isSelecting && e.keyCode === 77) {
         setSwitch();
-      }
+      } //m
       if (!isSelecting && e.keyCode === 32) {
         window.open(modalSRC[previewNumber]);
-      }
+      } //space
       setPos();
+
+      document.querySelector("#modal .desc").innerHTML = "";
+      Preview[i * 10 + j].tech.map((item) => {
+        let $li = document.createElement("li");
+        $li.innerHTML = item;
+        document.querySelector("#modal .desc").appendChild($li);
+      });
     };
 
     document.addEventListener("keydown", keyFuction);
@@ -148,6 +155,7 @@ export default function SelectContainer({ previewNumber, setPreviewNumber }) {
       document.removeEventListener("keydown", keyFuction);
     };
   }, [isSelecting, setClose, previewNumber, setPreviewNumber, setSwitch]);
+
   return (
     <>
       <Container />
@@ -189,6 +197,7 @@ export default function SelectContainer({ previewNumber, setPreviewNumber }) {
           <span></span>
           <span></span>
         </button>
+        <ul className="desc"></ul>
       </section>
     </>
   );

@@ -95,6 +95,15 @@
       top: 56px;
     }
   }
+
+  .desc {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 8vh;
+    width: 30%;
+    color: #f0f0f0;
+  }
 }
 
 @keyframes pop0 {
