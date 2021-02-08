@@ -1,0 +1,49 @@
+.howToUse {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+
+  > div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+
+    .hows {
+      width: 80%;
+      max-width: 800px;
+      color: #f0f0f0;
+      margin: 0 auto;
+      .how {
+        display: none;
+        img {
+          display: block;
+          width: 100%;
+          margin: 0 auto;
+        }
+
+        &.active {
+          display: block;
+        }
+      }
+    }
+
+    .scrollSpy {
+      li {
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        border-radius: 100%;
+        background-color: rgba($color: #fff, $alpha: 0.5);
+
+        &.active {
+          background-color: #fc3;
+        }
+      }
+    }
+  }
+}

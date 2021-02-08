@@ -9,7 +9,9 @@ export default function Container() {
     for (let i = 0; i < $containerUl.length; i++) {
       Object.values($containerUl[i].children).map((item) => {
         if (Preview[item.id]) {
-          item.innerHTML = `<img src="${Preview[item.id].img}" alt="">`;
+          item.innerHTML = `<img draggable="false" src="${
+            Preview[item.id].img
+          }" alt="">`;
         }
       });
     }

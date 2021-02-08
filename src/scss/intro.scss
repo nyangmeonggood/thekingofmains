@@ -1,5 +1,64 @@
 #intro {
+  position: relative;
   width: 100%;
   height: 100%;
-  background-color: #111;
+  background: linear-gradient(#000 50%, #780001 95%);
+  &.active {
+    transition: opacity 0s;
+    opacity: 0;
+  }
+  * {
+    user-select: none;
+  }
+
+  .titleBox {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-style: italic;
+    font-family: "Press Start 2P", cursive;
+    text-transform: uppercase;
+    span {
+      display: inline-block;
+      font-size: 4vw;
+      color: #f00001;
+      margin-bottom: 2vh;
+      background: linear-gradient(to bottom, #f00001 55%, #f74949);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    P:nth-of-type(1) {
+      font-size: 10vw;
+      background: linear-gradient(to bottom, #e95f00, #f7be00);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      b {
+        background: linear-gradient(to bottom, #f4f2f0, #675f56);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      margin-bottom: 6vh;
+    }
+    P:nth-of-type(2) {
+      text-shadow: none;
+      text-align: center;
+      font-size: 2vw;
+      color: #e6e1de;
+
+      animation: press 1s infinite;
+
+      @keyframes press {
+        0% {
+          opacity: 1;
+        }
+        70% {
+          opacity: 0.2;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+    }
+  }
 }

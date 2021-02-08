@@ -170,7 +170,7 @@ export default function SelectContainer({ previewNumber, setPreviewNumber }) {
           </span>
           <p>{Preview[previewNumber].desc}</p>
         </div>
-        <img src={Preview[previewNumber].img} alt=""></img>
+        <img draggable="false" src={Preview[previewNumber].img} alt=""></img>
       </section>
       <section id="modal">
         <div className="modalBox">
