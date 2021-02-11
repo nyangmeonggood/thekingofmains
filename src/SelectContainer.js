@@ -8,7 +8,7 @@ import "./scss/select.scss";
 import "./scss/modal.scss";
 import "./scss/preview.scss";
 
-export default function SelectContainer({ previewNumber, setPreviewNumber }) {
+export default function SelectContainer({ previewNumber, setPreviewNumber,setIntro, setHowToUse }) {
   const [isSelecting, setIsSelecting] = useState(true);
   const memoryINumber = useRef(1),
     memoryJNumber = useRef(1);
@@ -25,10 +25,10 @@ export default function SelectContainer({ previewNumber, setPreviewNumber }) {
     document.querySelector("#preview").innerHTML = `
       <div class="textBox">
         <h2>${Preview[previewNumber].name}</h2>
-        <span>- ${
+        <span>${
           Preview[previewNumber].responsive
-            ? "Responsive Web"
-            : " Not Responsive"
+            ? "- Responsive Web"
+            : ""
         }</span>
         <p>${Preview[previewNumber].desc}</p>
       </div>
@@ -93,8 +93,8 @@ export default function SelectContainer({ previewNumber, setPreviewNumber }) {
       document.querySelector("#preview").innerHTML = `
       <div class="textBox">
         <h2>${Preview[i * 10 + j].name}</h2>
-        <span>- ${
-          Preview[i * 10 + j].responsive ? "Responsive Web" : " Not Responsive"
+        <span>${
+          Preview[i * 10 + j].responsive ? "- Responsive Web" : ""
         }</span>
         <p>${Preview[i * 10 + j].desc}</p>
       </div>
@@ -124,6 +124,15 @@ export default function SelectContainer({ previewNumber, setPreviewNumber }) {
         moveSelector();
       }
       if (isSelecting && e.keyCode === 13) {
+        if(i === 2 && j ===5){
+          
+          setIntro(false)
+          let mainIntro = document.getElementById("intro")
+          if (mainIntro) {
+            mainIntro.classList.add("active");
+          }
+          return setHowToUse(true)
+        }
         soundPlay(selectSound);
         selectPos(setIsSelecting);
         setPreviewNumber(i * 10 + j);
@@ -143,7 +152,7 @@ export default function SelectContainer({ previewNumber, setPreviewNumber }) {
       setPos();
 
       document.querySelector("#modal .desc").innerHTML = "";
-      Preview[i * 10 + j].tech.map((item) => {
+      Preview[i * 10 + j].tech.forEach((item) => {
         let $li = document.createElement("li");
         $li.innerHTML = item;
         document.querySelector("#modal .desc").appendChild($li);
@@ -163,10 +172,9 @@ export default function SelectContainer({ previewNumber, setPreviewNumber }) {
         <div className="textBox">
           <h2>{Preview[previewNumber].name} </h2>
           <span>
-            -{" "}
             {Preview[previewNumber].responsive
-              ? "Responsive Web"
-              : " Not Responsive"}
+              ? "- Responsive Web"
+              : ""}
           </span>
           <p>{Preview[previewNumber].desc}</p>
         </div>
@@ -192,11 +200,10 @@ export default function SelectContainer({ previewNumber, setPreviewNumber }) {
           >
             New
           </a>
+          <button className="close" onClick={setClose}>
+            X
+          </button>
         </div>
-        <button className="close" onClick={setClose}>
-          <span></span>
-          <span></span>
-        </button>
         <ul className="desc"></ul>
       </section>
     </>

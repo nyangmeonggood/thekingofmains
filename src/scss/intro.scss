@@ -43,8 +43,14 @@
     P:nth-of-type(2) {
       text-shadow: none;
       text-align: center;
-      font-size: 2vw;
       color: #e6e1de;
+
+      @media screen and (min-width:900px){
+        font-size: 2vw;
+      }
+      @media screen and (max-width:900px){
+        font-size: 4vw;
+      }
 
       animation: press 1s infinite;
 

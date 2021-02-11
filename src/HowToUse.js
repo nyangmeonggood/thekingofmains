@@ -8,41 +8,79 @@ import use3 from "./img/use/use3.gif";
 export default function HowToUse({ howToUse, setIntro, setHowToUse }) {
   const howToUseRef = useRef("");
   const currentHowToUseRef = useRef(0);
+  const $how = useRef(0);
+  const $howSpy = useRef(0);
+
+  let howSlide;
+
   const skip = () => {
-    setIntro(true);
-    setHowToUse(false);
+    if (currentHowToUseRef.current === 3) {
+      setIntro(true);
+      setHowToUse(false);
+    }
   };
+
+  const slideMinus = () => {
+    if (howToUseRef.current) {
+      currentHowToUseRef.current--;
+      if (currentHowToUseRef.current < 0) currentHowToUseRef.current = 0;
+      howSlide();
+    }
+  }
+
+  const slidePlus = () => {
+    if (howToUseRef.current) {
+      currentHowToUseRef.current++;
+      if (currentHowToUseRef.current > 3) currentHowToUseRef.current = 3;
+      howSlide();
+    }
+  }
+
   useEffect(() => {
-    const howSlide = () => {
-      const $how = Object.values(document.getElementsByClassName("how"));
-      const $howSpy = Object.values(
+    if (document.body.clientWidth < 900) {
+      setIntro(true);
+      setHowToUse(false);
+    }
+
+    howSlide = () => {
+      $how.current = Object.values(document.getElementsByClassName("how"));
+      $howSpy.current = Object.values(
         document.querySelector(".scrollSpy").children
       );
-      $how.forEach((item) => {
-        item.classList.remove("active");
-      });
-      $how[currentHowToUseRef.current].classList.add("active");
 
-      $howSpy.forEach((item) => {
+      if (currentHowToUseRef.current === 3) {
+        document.querySelector(".btnBox").classList.add("active")
+      } else {
+        document.querySelector(".btnBox").classList.remove("active")
+      }
+
+      $how.current.forEach((item) => {
         item.classList.remove("active");
       });
-      $howSpy[currentHowToUseRef.current].classList.add("active");
+      $how.current[currentHowToUseRef.current].classList.add("active");
+
+      $howSpy.current.forEach((item) => {
+        item.classList.remove("active");
+      });
+      $howSpy.current[currentHowToUseRef.current].classList.add("active");
     };
+
     const keyFuction = (e) => {
       if (howToUse && e.keyCode === 13) {
         skip();
       }
       if (howToUse && e.keyCode === 37) {
-        currentHowToUseRef.current--;
-        if (currentHowToUseRef.current < 0) currentHowToUseRef.current = 0;
-        howSlide();
+        slideMinus()
       }
       if (howToUse && e.keyCode === 39) {
-        currentHowToUseRef.current++;
-        if (currentHowToUseRef.current > 3) currentHowToUseRef.current = 3;
-        howSlide();
+        slidePlus()
+      }
+      if (howToUse && e.keyCode === 27) {
+        setIntro(true);
+        setHowToUse(false);
       }
     };
+
     document.addEventListener("keydown", keyFuction);
     return () => {
       document.removeEventListener("keydown", keyFuction);
@@ -51,25 +89,26 @@ export default function HowToUse({ howToUse, setIntro, setHowToUse }) {
   return (
     <section className="howToUse" ref={howToUseRef}>
       <div>
+        <button onClick={skip} className="skip">skip</button>
         <ul className="hows">
           <li className="how how0 active">
-            <img src={use0} />
-            <p>방향키로 이동하고 enter키로 선택합니다</p>
+            <img src={use0} alt="arrow&enter" />
+            <p>Use "Direction key" to navigate<br /> "Enter key" to select.</p>
           </li>
           <li className="how how1">
-            <img src={use1} />
+            <img src={use1} alt="m" />
 
-            <p>m키를 이용해 레이아웃을 변경합니다</p>
+            <p>Use "M key" to change<br />the layout.</p>
           </li>
           <li className="how how2">
-            <img src={use3} />
+            <img src={use2} alt="spacebar" />
 
-            <p>spaceBar 버튼을 이용해 새 창에서 열 수 있습니다.</p>
+            <p>Use "SpaceBar button" to open<br />Main in a new window.</p>
           </li>
           <li className="how how3">
-            <img src={use3} />
+            <img src={use3} alt="esc" />
 
-            <p>esc키를 이용해 선택을 취소할 수 있습니다.</p>
+            <p>Use "ESC Key" to cancel<br />selected Main</p>
           </li>
         </ul>
 
@@ -80,7 +119,11 @@ export default function HowToUse({ howToUse, setIntro, setHowToUse }) {
           <li></li>
         </ul>
 
-        <button onClick={skip}>Skip</button>
+        <div className="btnBox">
+          <button onClick={slideMinus} className="arrow left">←</button>
+          <button onClick={slidePlus} className="arrow right">←</button>
+          <button onClick={skip} className="enter">Enter</button>
+        </div>
       </div>
     </section>
   );

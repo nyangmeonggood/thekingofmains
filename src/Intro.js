@@ -3,11 +3,19 @@ import "./scss/intro.scss";
 
 export default function Intro({ intro, setHowToUse }) {
   const introRef = useRef("");
+
+  const skipIntro = () => {
+    if (introRef.current) {
+      introRef.current.classList.add("active");
+    }
+    setHowToUse(true);
+  }
+
   useEffect(() => {
+
     const keyFuction = (e) => {
       if (!intro && e.keyCode === 13) {
-        introRef.current.classList.add("active");
-        setHowToUse(true);
+        skipIntro()
       }
     };
 
@@ -17,14 +25,14 @@ export default function Intro({ intro, setHowToUse }) {
     };
   });
   return (
-    <section id="intro" ref={introRef}>
+    <section id="intro" ref={introRef} onClick={skipIntro}>
       <div className="titleBox">
         <span>The king of</span>
         <p>
           Mains<b>'26</b>
         </p>
 
-        <p className="pressKey">Press Enter Key</p>
+        <p className="pressKey">{document.body.clientWidth > 900 ? "Press Enter Key" : "Touch the Screen"}</p>
       </div>
     </section>
   );

@@ -21,10 +21,13 @@ function App() {
           setHowToUse={setHowToUse}
         />
       )}
+
       {intro && (
         <SelectContainer
           previewNumber={previewNumber}
           setPreviewNumber={setPreviewNumber}
+          setIntro={setIntro}
+          setHowToUse={setHowToUse}
         />
       )}
       {intro && <CurrentDate />}

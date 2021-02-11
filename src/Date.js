@@ -48,13 +48,13 @@ const TITLE = styled.p`
     bottom: 2%;
     transform: perspective(4em) rotateX(0) skewX(0);
     text-align: right;
+    opacity:0.2;
   }
 `;
 
 const Time = styled.div`
   font-family: "Press Start 2P", cursive;
   position: absolute;
-  top: 50%;
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
@@ -64,5 +64,24 @@ const Time = styled.div`
     background: linear-gradient(#c56121, #cac4b7);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+  }
+
+  @media screen and (min-width:900px){
+    top: 50%;
+    h2,
+    p {
+      font-size: 32px;
+    }
+  }
+
+  @media screen and (max-width:900px){
+    top: 41%;
+    h2 {
+      font-size: 3.5vw;
+      margin-bottom:4px
+    }
+    p {
+      font-size: 4vw;
+    }
   }
 `;

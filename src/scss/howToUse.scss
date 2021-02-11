@@ -6,6 +6,13 @@
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.8);
 
+  @media screen and (min-width:900px){
+    font-size: 20px;
+  }
+  @media screen and (max-width:900px){
+    font-size: 1vw;
+  }
+
   > div {
     position: absolute;
     top: 50%;
@@ -14,7 +21,7 @@
     text-align: center;
 
     .hows {
-      width: 80%;
+      width: 100%;
       max-width: 800px;
       color: #f0f0f0;
       margin: 0 auto;
@@ -24,6 +31,12 @@
           display: block;
           width: 100%;
           margin: 0 auto;
+          margin-bottom: 20px;
+        }
+
+        p{
+          margin-bottom: 40px;
+          line-height: 1.4em;
         }
 
         &.active {
@@ -33,16 +46,54 @@
     }
 
     .scrollSpy {
+      margin-bottom: 20px;
+
       li {
         display: inline-block;
-        width: 10px;
-        height: 10px;
-        border-radius: 100%;
+        width: 14px;
+        height: 14px;
+        
+        margin: 0 6px;
         background-color: rgba($color: #fff, $alpha: 0.5);
 
         &.active {
           background-color: #fc3;
         }
+      }
+    }
+
+    .btnBox{
+        .enter{
+          display: none;
+        }
+      &.active{
+        .arrow{
+          display: none;
+        }
+        .enter{
+          display: inline-block;
+        }
+      }
+    }
+
+    button{
+      padding: 8px 10px;
+      border: none;
+      font-size: 20px;
+      background-color: transparent;
+      color: #f0f0f0;
+
+
+      &.right{
+        transform: rotate(180deg);
+        transform-origin: center;
+      }
+
+      &.skip{
+        float: right;
+        margin-bottom: 18px;
+      font-size: 14px;
+      padding: 0;
       }
     }
   }

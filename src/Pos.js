@@ -56,7 +56,7 @@ export const selectClick = (
         for (var k = 0; k < 3; k++) {
           Object.values(
             document.querySelector(".container").children[k].children
-          ).map((item) => item.classList.remove("active"));
+          ).forEach((item) => item.classList.remove("active"));
         }
         document.body
           .querySelector(
@@ -69,7 +69,7 @@ export const selectClick = (
 
         Preview[
           parseInt(item.dataset.i * 10) + parseInt(item.dataset.j)
-        ].tech.map((item) => {
+        ].tech.forEach((item) => {
           let $li = document.createElement("li");
           $li.innerHTML = item;
           document.querySelector("#modal .desc").appendChild($li);
@@ -93,9 +93,8 @@ export const selectClick = (
       }
       document.body
         .querySelector(
-          `[id="${
-            parseInt(memoryINumber.current * 10) +
-            parseInt(memoryJNumber.current)
+          `[id="${parseInt(memoryINumber.current * 10) +
+          parseInt(memoryJNumber.current)
           }"]`
         )
         .classList.add("active");

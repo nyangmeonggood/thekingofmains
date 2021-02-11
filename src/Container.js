@@ -7,11 +7,10 @@ export default function Container() {
     const $containerUl = containerRef.current.getElementsByTagName("ul");
 
     for (let i = 0; i < $containerUl.length; i++) {
-      Object.values($containerUl[i].children).map((item) => {
+      Object.values($containerUl[i].children).forEach((item) => {
         if (Preview[item.id]) {
-          item.innerHTML = `<img draggable="false" src="${
-            Preview[item.id].img
-          }" alt="">`;
+          item.innerHTML = `<img draggable="false" src="${Preview[item.id].img
+            }" alt="">`;
         }
       });
     }

@@ -22,7 +22,7 @@ export const Preview = {
     ],
   },
   13: {
-    name: "B : PicChangedByList",
+    name: "PicChangedByList",
     desc: "Slide & Click motion",
     responsive: true,
     img:
@@ -52,14 +52,14 @@ export const Preview = {
     ],
   },
   16: {
-    name: "UnC : BookShelf",
-    desc: "Slide & Pointer Animation",
+    name: "SwitchProduct",
+    desc: "Slide & Swipe on mobile",
     responsive: true,
     img:
-      "https://raw.githubusercontent.com/nyangmeonggood/thekingofmains/master/src/img/pixel/fullSlide.png",
+      "https://raw.githubusercontent.com/nyangmeonggood/thekingofmains/master/src/img/pixel/switchProduct.png",
     tech: [
-      "버튼을 클릭해 블렌딩효과를 변경하고 전체화면으로 감상할 수 있습니다.",
-      "하단의 colorChange 버튼을 이용해 배경의 색상을 변경할 수 있습니다.",
+      "스크롤을 이용해 슬라이드를 이동합니다.",
+      "우측 하단의 버튼을 클릭해 세부정보를 확인할 수 있습니다.",
     ],
   },
   17: {
@@ -128,14 +128,13 @@ export const Preview = {
     ],
   },
   25: {
-    name: "SwitchProduct",
-    desc: "Slide & Swipe on mobile",
-    responsive: true,
+    name: "TheKingOfMains",
+    desc: "How to Use",
+    responsive: false,
     img:
-      "https://raw.githubusercontent.com/nyangmeonggood/thekingofmains/master/src/img/pixel/switchProduct.png",
+      "https://raw.githubusercontent.com/nyangmeonggood/thekingofmains/master/src/img/pixel/kom.png",
     tech: [
-      "스크롤을 이용해 슬라이드를 이동합니다.",
-      "우측 하단의 버튼을 클릭해 세부정보를 확인할 수 있습니다.",
+      "",
     ],
   },
   26: {
