@@ -1,9 +1,9 @@
 import { useEffect, useRef } from "react";
 import "./scss/howToUse.scss";
-import use0 from "./img/use/use0.gif";
-import use1 from "./img/use/use1.gif";
-import use2 from "./img/use/use2.gif";
-import use3 from "./img/use/use3.gif";
+import use0 from "./img/use/kom_arrowenter.gif";
+import use1 from "./img/use/kom_m.gif";
+import use2 from "./img/use/kom_spacebar.gif";
+import use3 from "./img/use/kom_esc.gif";
 
 export default function HowToUse({ howToUse, setIntro, setHowToUse }) {
   const howToUseRef = useRef("");

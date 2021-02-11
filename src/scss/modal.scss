@@ -36,8 +36,11 @@
     }
 
     &.switch {
-      width: 30%;
-      min-width: 400px;
+  
+      @media screen and (min-width:900px){
+        width: 30%;
+        min-width: 400px;
+      }
       .pc {
         display: none;
       }
@@ -52,7 +55,7 @@
     width: 100%;
     margin: 0 auto;
     height: 100%;
-    background-color: transparent;
+    background-color: #fff;
   }
 
   .btn,
