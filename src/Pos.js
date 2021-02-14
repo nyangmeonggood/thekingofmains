@@ -40,8 +40,11 @@ export const selectClick = (
   soundPlay,
   selectSound,
   memoryINumber,
-  memoryJNumber
+  memoryJNumber,
+  setIntro, setHowToUse,
+  mainIntro
 ) => {
+
   for (var k = 0; k < 3; k++) {
     Object.values(
       document.querySelector(".container").children[k].children
@@ -63,6 +66,7 @@ export const selectClick = (
             `[id="${parseInt(item.dataset.i * 10) + parseInt(item.dataset.j)}"]`
           )
           .classList.add("active");
+
         setPos();
 
         document.querySelector("#modal .desc").innerHTML = "";
@@ -77,6 +81,16 @@ export const selectClick = (
       })
     );
   }
+
+  document.querySelector(".container").children[1].children[4].addEventListener("click", () => {
+
+    if (mainIntro) {
+      mainIntro.classList.add("active");
+    }
+    setIntro(false)
+    return setHowToUse(true)
+  })
+
 
   if (document.querySelector("#selector")) {
     document.querySelector("#selector").addEventListener("click", function () {

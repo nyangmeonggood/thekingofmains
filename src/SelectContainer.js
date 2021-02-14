@@ -60,7 +60,9 @@ export default function SelectContainer({ previewNumber, setPreviewNumber,setInt
       soundPlay,
       selectSound,
       memoryINumber,
-      memoryJNumber
+      memoryJNumber,
+      setIntro, setHowToUse,
+      document.getElementById("intro")
     );
 
     return () =>

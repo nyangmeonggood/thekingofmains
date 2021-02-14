@@ -36,6 +36,11 @@ export default function HowToUse({ howToUse, setIntro, setHowToUse }) {
     }
   }
 
+  const hideHowToUse = () => {
+    setIntro(true);
+    setHowToUse(false);
+  }
+
   useEffect(() => {
     if (document.body.clientWidth < 900) {
       setIntro(true);
@@ -76,8 +81,7 @@ export default function HowToUse({ howToUse, setIntro, setHowToUse }) {
         slidePlus()
       }
       if (howToUse && e.keyCode === 27) {
-        setIntro(true);
-        setHowToUse(false);
+        hideHowToUse()
       }
     };
 
@@ -89,7 +93,7 @@ export default function HowToUse({ howToUse, setIntro, setHowToUse }) {
   return (
     <section className="howToUse" ref={howToUseRef}>
       <div>
-        <button onClick={skip} className="skip">skip</button>
+        <button onClick={hideHowToUse} className="skip">skip</button>
         <ul className="hows">
           <li className="how how0 active">
             <img src={use0} alt="arrow&enter" />
