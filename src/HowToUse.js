@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./scss/howToUse.scss";
 import use0 from "./img/use/kom_arrowenter.gif";
 import use1 from "./img/use/kom_m.gif";
@@ -10,6 +10,7 @@ export default function HowToUse({ howToUse, setIntro, setHowToUse }) {
   const currentHowToUseRef = useRef(0);
   const $how = useRef(0);
   const $howSpy = useRef(0);
+  const [eng, setEng] = useState(false)
 
   let howSlide;
 
@@ -34,6 +35,11 @@ export default function HowToUse({ howToUse, setIntro, setHowToUse }) {
       if (currentHowToUseRef.current > 3) currentHowToUseRef.current = 3;
       howSlide();
     }
+  }
+
+
+  const changeLanguage = () => {
+    setEng(v => !v)
   }
 
   const hideHowToUse = () => {
@@ -93,26 +99,32 @@ export default function HowToUse({ howToUse, setIntro, setHowToUse }) {
   return (
     <section className="howToUse" ref={howToUseRef}>
       <div>
-        <button onClick={hideHowToUse} className="skip">skip</button>
+
+        {eng && <button onClick={hideHowToUse} className="skip">skip</button>}
+        {!eng && <button onClick={hideHowToUse} className="skip kor">건너뛰기</button>}
         <ul className="hows">
           <li className="how how0 active">
             <img src={use0} alt="arrow&enter" />
-            <p>Use "Direction key" to navigate<br /> "Enter key" to select.</p>
+            {eng && <p>Use "Direction key" to navigate<br /> "Enter key" to select.</p>}
+            {!eng && <p className="kor">방향키를 이용해서 이동하고<br /> 엔터키를 이용해 선택합니다.</p>}
           </li>
           <li className="how how1">
             <img src={use1} alt="m" />
 
-            <p>Use "M key" to change<br />the layout.</p>
+            {eng && <p>Use "M key" to change<br />the layout.</p>}
+            {!eng && <p className="kor">"M 키"를 이용하여<br />레이아웃을 변경합니다.</p>}
           </li>
           <li className="how how2">
             <img src={use2} alt="spacebar" />
 
-            <p>Use "SpaceBar button" to open<br />Main in a new window.</p>
+            {eng && <p>Use "SpaceBar button" to open<br />Main in a new window.</p>}
+            {!eng && <p className="kor">"스페이스바 키"를 이용하여<br />새 창으로 열 수 있습니다.</p>}
           </li>
           <li className="how how3">
             <img src={use3} alt="esc" />
 
-            <p>Use "ESC Key" to cancel<br />selected Main</p>
+            {eng && <p>Use "ESC Key" to cancel<br />selected Main</p>}
+            {!eng && <p className="kor">"ESC 키"를 이용하여<br />선택을 해제할 수 있습니다.</p>}
           </li>
         </ul>
 
@@ -126,9 +138,16 @@ export default function HowToUse({ howToUse, setIntro, setHowToUse }) {
         <div className="btnBox">
           <button onClick={slideMinus} className="arrow left">←</button>
           <button onClick={slidePlus} className="arrow right">←</button>
-          <button onClick={skip} className="enter">Enter</button>
+
+          {eng && <button onClick={skip} className="enter">Enter</button>}
+          {!eng && <button onClick={skip} className="enter kor">확인</button>}
         </div>
       </div>
+
+
+
+      {eng && <button onClick={changeLanguage} className="changeLang">Kor</button>}
+      {!eng && <button onClick={changeLanguage} className="changeLang kor">영문</button>}
     </section>
   );
 }

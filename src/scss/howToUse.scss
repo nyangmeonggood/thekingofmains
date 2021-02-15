@@ -6,6 +6,17 @@
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.8);
 
+  .changeLang{
+    position: fixed;
+    right: 2%;
+    bottom: 2%;
+    border: none;
+    font-size: 16px;
+    background-color: transparent;
+    color: #f0f0f0;
+    cursor: pointer;
+  }
+
   @media screen and (min-width:900px){
     font-size: 20px;
   }
@@ -92,8 +103,8 @@
       &.skip{
         float: right;
         margin-bottom: 18px;
-      font-size: 14px;
-      padding: 0;
+        font-size: 14px;
+        padding: 0;
       }
     }
   }

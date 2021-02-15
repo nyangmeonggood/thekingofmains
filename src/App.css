@@ -2,6 +2,10 @@
   font-family: "kof";
   src: url("./font/kof.ttf");
 }
+@font-face {
+  font-family: "kor";
+  src: url("./font/kor.ttf");
+}
 
 * {
   margin: 0;
@@ -25,4 +29,9 @@ li {
 body {
   font-family: "kof";
   background: linear-gradient(black, #0000f1);
+}
+
+.kor{
+  font-family: "kor" !important;
+  transform: scaleX(1.2);
 }

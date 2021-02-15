@@ -206,7 +206,7 @@ export default function SelectContainer({ previewNumber, setPreviewNumber,setInt
             X
           </button>
         </div>
-        <ul className="desc"></ul>
+        <ul className="desc kor"></ul>
       </section>
     </>
   );
