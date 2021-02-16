@@ -10,6 +10,7 @@ export default function HowToUse({ howToUse, setIntro, setHowToUse }) {
   const currentHowToUseRef = useRef(0);
   const $how = useRef(0);
   const $howSpy = useRef(0);
+  const leftBtn = useRef(0);
   const [eng, setEng] = useState(false)
 
   let howSlide;
@@ -18,6 +19,7 @@ export default function HowToUse({ howToUse, setIntro, setHowToUse }) {
     if (currentHowToUseRef.current === 3) {
       setIntro(true);
       setHowToUse(false);
+      soundPlay(selectSound);
     }
   };
 
@@ -45,9 +47,19 @@ export default function HowToUse({ howToUse, setIntro, setHowToUse }) {
   const hideHowToUse = () => {
     setIntro(true);
     setHowToUse(false);
+    soundPlay(selectSound);
+
   }
 
   useEffect(() => {
+    
+
+    if(currentHowToUseRef.current === 0){
+      leftBtn.current.style.opacity = 0.2
+    }else{
+      leftBtn.current.style.opacity = 1
+    }
+    
     if (document.body.clientWidth < 900) {
       setIntro(true);
       setHowToUse(false);
@@ -58,6 +70,12 @@ export default function HowToUse({ howToUse, setIntro, setHowToUse }) {
       $howSpy.current = Object.values(
         document.querySelector(".scrollSpy").children
       );
+
+      if(currentHowToUseRef.current === 0){
+        leftBtn.current.style.opacity = 0.2
+      }else{
+        leftBtn.current.style.opacity = 1
+      }
 
       if (currentHowToUseRef.current === 3) {
         document.querySelector(".btnBox").classList.add("active")
@@ -79,15 +97,19 @@ export default function HowToUse({ howToUse, setIntro, setHowToUse }) {
     const keyFuction = (e) => {
       if (howToUse && e.keyCode === 13) {
         skip();
+
       }
       if (howToUse && e.keyCode === 37) {
+        soundPlay(moveSound);
         slideMinus()
       }
       if (howToUse && e.keyCode === 39) {
+        soundPlay(moveSound);
         slidePlus()
       }
       if (howToUse && e.keyCode === 27) {
         hideHowToUse()
+
       }
     };
 
@@ -136,7 +158,7 @@ export default function HowToUse({ howToUse, setIntro, setHowToUse }) {
         </ul>
 
         <div className="btnBox">
-          <button onClick={slideMinus} className="arrow left">←</button>
+          <button onClick={slideMinus} ref={leftBtn} className="arrow left">←</button>
           <button onClick={slidePlus} className="arrow right">←</button>
 
           {eng && <button onClick={skip} className="enter">Enter</button>}
@@ -151,3 +173,17 @@ export default function HowToUse({ howToUse, setIntro, setHowToUse }) {
     </section>
   );
 }
+
+const moveSound = new Audio(
+  "https://raw.githubusercontent.com/kucerajacob/DRUM-SEQUENCER/master/audio/hihat.mp3"
+  // "https://raw.githubusercontent.com/kucerajacob/DRUM-SEQUENCER/master/audio/clap.mp3"
+  );
+  const selectSound = new Audio(
+    // "https://raw.githubusercontent.com/nyangmeonggood/thekingofmains/master/src/sound/select.mp3"
+    "https://raw.githubusercontent.com/nyangmeonggood/thekingofmains/master/src/sound/intro.mp3"
+);
+
+const soundPlay = (sound) => {
+  sound.load();
+  sound.play();
+};

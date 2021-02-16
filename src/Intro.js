@@ -15,6 +15,7 @@ export default function Intro({ intro, setHowToUse }) {
 
     const keyFuction = (e) => {
       if (!intro && e.keyCode === 13) {
+        soundPlay(selectSound);
         skipIntro()
       }
     };
@@ -37,3 +38,13 @@ export default function Intro({ intro, setHowToUse }) {
     </section>
   );
 }
+
+  const selectSound = new Audio(
+    // "https://raw.githubusercontent.com/nyangmeonggood/thekingofmains/master/src/sound/select.mp3"
+    "https://raw.githubusercontent.com/nyangmeonggood/thekingofmains/master/src/sound/intro.mp3"
+);
+
+const soundPlay = (sound) => {
+  sound.load();
+  sound.play();
+};

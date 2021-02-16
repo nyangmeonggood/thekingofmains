@@ -70,7 +70,7 @@ export default function SelectContainer({ previewNumber, setPreviewNumber,setInt
         setSize();
         setPos();
       });
-  }, [setPreviewNumber]);
+  }, [setIntro, setHowToUse,setPreviewNumber]);
 
   useEffect(() => {
     let i = memoryINumber.current;
@@ -165,7 +165,7 @@ export default function SelectContainer({ previewNumber, setPreviewNumber,setInt
     return () => {
       document.removeEventListener("keydown", keyFuction);
     };
-  }, [isSelecting, setClose, previewNumber, setPreviewNumber, setSwitch]);
+  }, [setIntro, setHowToUse,isSelecting, setClose, previewNumber, setPreviewNumber, setSwitch]);
 
   return (
     <>
@@ -213,12 +213,12 @@ export default function SelectContainer({ previewNumber, setPreviewNumber,setInt
 }
 
 const moveSound = new Audio(
-  // "https://raw.githubusercontent.com/nyangmeonggood/thekingofmains/master/src/sound/move.mp3"
-  "https://raw.githubusercontent.com/kucerajacob/DRUM-SEQUENCER/master/audio/clap.mp3"
-);
-const selectSound = new Audio(
-  // "https://raw.githubusercontent.com/nyangmeonggood/thekingofmains/master/src/sound/select.mp3"
   "https://raw.githubusercontent.com/kucerajacob/DRUM-SEQUENCER/master/audio/hihat.mp3"
+  // "https://raw.githubusercontent.com/kucerajacob/DRUM-SEQUENCER/master/audio/clap.mp3"
+  );
+  const selectSound = new Audio(
+    // "https://raw.githubusercontent.com/nyangmeonggood/thekingofmains/master/src/sound/select.mp3"
+    "https://raw.githubusercontent.com/nyangmeonggood/thekingofmains/master/src/sound/intro.mp3"
 );
 
 const soundPlay = (sound) => {
