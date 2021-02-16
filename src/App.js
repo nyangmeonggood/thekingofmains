@@ -12,7 +12,7 @@ function App() {
 
   return (
     <>
-      {!intro && <Intro intro={intro} setHowToUse={setHowToUse} />}
+      {!intro && <Intro intro={intro} howToUse={howToUse} setHowToUse={setHowToUse} />}
 
       {howToUse && (
         <HowToUse

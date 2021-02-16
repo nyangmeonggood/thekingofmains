@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import "./scss/intro.scss";
 
-export default function Intro({ intro, setHowToUse }) {
+export default function Intro({ intro,howToUse, setHowToUse }) {
   const introRef = useRef("");
 
   const skipIntro = () => {
@@ -14,7 +14,7 @@ export default function Intro({ intro, setHowToUse }) {
   useEffect(() => {
 
     const keyFuction = (e) => {
-      if (!intro && e.keyCode === 13) {
+      if (!intro && !howToUse&& e.keyCode === 13) {
         soundPlay(selectSound);
         skipIntro()
       }
